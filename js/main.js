@@ -220,7 +220,7 @@
   });
 
   var waypointRetirement = new Waypoint({
-    element: document.getElementById('methodology'),
+    element: document.getElementById('breakdown'),
     handler: function(direction) {
       if(direction === "down") {
         tableWrap.classList.add("hidden");
