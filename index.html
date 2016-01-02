@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>A Lebanese life in bribes</title>
+  <!-- bower --> 
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/d3/d3.min.js"></script>
+  <script src="bower_components/jquery-countTo/jquery.countTo.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link href='bower_components/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet'/>
+  <script src="bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+  <script src="bower_components/waypoints/lib/shortcuts/sticky.min.js"></script>
+  <link href='css/style.min.css' rel='stylesheet'/>
+</head>
+<body>
+  <section class="parent fullHeight">
+    <div class="child">
+      <h1>ليرة ورا ليرة</h1>
+      <h2>A Lebanese life in bribes</h2>
+    </div>
+  </section>
+  <section class="section parent fullHeight" id="hero">
+     <div class="child">
+      <div class="lead">
+        <p>
+          Did you know the average Lebanese will give up the equivalent of 8,850 shawarma, one and a half cars, or 1662 tanks of gas in bribes in their lifetime?
+        </p>
+        <p class="small">
+          This is a Lebanese life story in bribes. 
+        </p> 
+      </div>
+    </div>
+  </section>
+  <section class="stages">
+      <div class="container">
+        <div class="col-md-8">
+          <div id="stage-birth" class="fullHeight fullHeightReset">
+           <h2>Birth</h2>
+            <p>
+              Just for being born, your parents will have had to bribe for your hospital admission, birth certificate, and for the other civil status records needed to document their growing family. 
+            </p>
+          </div>
+          <div id = "stage-school" class=" fullHeight fullHeightReset">
+            <h2>School</h2>
+            <p>
+              You make your parents proud by excelling in primary and secondary school. But if you want proof of your achievements, you'll have to bribe for your identity card and for the certification of your records. 
+            </p>
+          </div>
+          <div id="stage-university" class="fullHeight fullHeightReset">
+            <h2>University Years</h2>
+            <p>
+              You've made it to university. You'll need to bribe for your driver's license and for your car's registration. And, since you live in Beirut, where it's practically impossible to find a place to park, one day when you're late to class, you park in a prohibted area and get a ticket. You'll have to pay a bribe, whether or you not pay the ticket because the officer was in a bad mood. Once you graduate and start working, you'll need to bribe again to certify your degree. 
+            </p>
+          </div>
+          <div id="stage-workingLife" class="fullHeight fullHeightReset">
+            <h2>Working Life</h2>
+            <p>
+              Finally, you're making your own money. The company you started is doing well, but the bribes you had to pay for its registration license and your personal documents were a slap on the face. Your car is giving you trouble and you dread the trip to mecanique. You already know it, you're paying a bribe to get through this inspection. 
+            </p>
+          </div>
+          <div id="stage-familyLife" class="fullHeight fullHeightReset">
+            <h2>Family Life</h2>
+            <p>
+              You've met the love of your life and you're still not sure if they like you, or your money, but either way, you've gotten married. You'll bribe for the documents you'll need for your marriage, and for the permit to get a loan for your house, and everything you need to run a household. 
+            </p>
+            <p>
+              You and your spouse decide to have children, so history repeats itself, and another cycle of bribery begins. To be continued... 
+            </p> 
+          </div>
+          <div id="stage-retirement" class="fullHeight fullHeightReset">
+            <h2>Retirement</h2>
+            <p>
+              Just as you bribed to help your children start their lives on the right track, your children will start to take on the costs of helping you age. You'll have to renew your driver's license and passport, and other important personal documents. Your visits to the hospital will increase, which will mean more bribes for admission. 
+            </p>
+          </div>
+        </div>
+      <div class="col-md-4" > 
+        <div id="data">
+        </div>       
+      </div>
+    </div>
+  </section>
+  <section class="section fullHeight" id="breakdown">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+        <h3>How we created a fictional "life in bribes"</h3>
+        <div id="treemap"></div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="section fullHeight" id="methodology">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h3>Methodology</h3>
+          <p>
+            Dealing with corrupt government officials is depressingly commonplace for the average Lebanese, who must bribe to get everyday government services (for example, obtaining a passport) taken care of in a timely fashion, or indeed at all.
+          </p>
+          <p>
+             To tell a story of corruption for a fictional, “typical” Lebanese, we selected common life milestones - from raising a child and going through tertiary education, to getting married and entering the labour market - and then added the estimated average cost of bribes most people would unavoidably have to pay at each milestone. 
+          </p>
+          <p>
+            Sakker El Dekkene maintains a growing database of bribery data from citizens who report corruption through its app and outreach programmes. We chose procedures with verifiable base costs (e.g. having a car registered) that we also had average bribery data for. 
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section parent fullHeight report" id="callToAction">
+    <div class="child">
+      <h2>بلّغ عن الفساد ليصير عنّا بلد</h2>
+      <h3>Report corruption so Lebanon can become a country.</h3>
+      <div class="report-buttons">
+        <a class="reportButton" href="https://www.sakkera.com/" target="_blank" title="Sakkera">
+          Report
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer  class="footer visible-xs visible-sm" id="footer">
+    <div class="container">
+      <div class="col-md-12" id="mobileCounter">
+        <!-- mobile --> 
+      </div>
+    </div>
+  </footer>
+<!-- do not delete! -->
+<!-- <footer class="invisible">
+  <aside>
+  </aside>
+</footer>   -->
+<script src="js/main.js"></script>
+<script src="js/treemap.js"></script>
+</body>
+</html>
