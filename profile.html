@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Calculate your bribe profile</title>
+  <!-- bower --> 
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/d3/d3.min.js"></script>
+  <script src="bower_components/jquery-countTo/jquery.countTo.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <link href='bower_components/bootstrap/dist/css/bootstrap.min.css' rel='stylesheet'/>
+  <script src="bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+  <script src="bower_components/waypoints/lib/shortcuts/sticky.min.js"></script>
+  <link href='css/style.min.css' rel='stylesheet'/>
+</head>
+<body>
+  <section class="section fullHeight" id="breakdown">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <h3>How does your life in bribes compare to the average?</h3>
+        
+        <h4>1. Choose a government procedure</h4>
+        <div id="procedure"></div>
+
+        <h4>2. Enter the bribe you had to pay </h4>
+        <input type="number" id="userBribeAmount" min="0"></input>
+        <label for="bribeAmount">ل.ل</label>
+
+        <div class="tabulate">  
+<!--           <a class="btn reportButton" id="addAnotherBribe" tabindex=0>Add another bribe to your profile</a> -->
+          <a class="btn reportButton" id="viewProfile" tabindex=0>View your bribe profile</a> 
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+<script src="js/profile.js"></script>
+</body>
+</html>

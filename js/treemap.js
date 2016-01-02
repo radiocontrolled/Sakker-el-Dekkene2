@@ -37,6 +37,8 @@
       .append("g")
       .attr("class","cell");
 
+    cells
+
   })
 
   getViewportDimensions();

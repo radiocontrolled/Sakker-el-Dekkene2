@@ -82,13 +82,23 @@
       </div>
     </div>
   </section>
-  <section class="section fullHeight" id="breakdown">
+ <section class="section fullHeight" id="breakdown">
     <div class="container">
       <div class="row">
-        <div class="col-md-8">
-        <h3>How we created a fictional "life in bribes"</h3>
-        <div id="treemap"></div>
+        <div class="col-md-12">
+        <h3>How does your life in bribes compare to the average?</h3>
+        
+        <h4>1. Choose a government procedure</h4>
+        <div id="procedure"></div>
 
+        <h4>2. Enter the bribe you had to pay </h4>
+        <input type="number" id="userBribeAmount" min="0"></input>
+        <label for="bribeAmount">ل.ل</label>
+
+        <div class="tabulate">  
+<!--           <a class="btn reportButton" id="addAnotherBribe" tabindex=0>Add another bribe to your profile</a> -->
+          <a class="btn reportButton" id="viewProfile" tabindex=0>View your bribe profile</a> 
+        </div>
 
         </div>
       </div>
@@ -138,6 +148,6 @@
   </aside>
 </footer>   -->
 <script src="js/main.js"></script>
-<script src="js/treemap.js"></script>
+<script src="js/profile.js"></script>
 </body>
 </html>

@@ -1,4 +1,9 @@
 
+** ideas
+
+Using the "bribe profile" application could help build the SED database...
+
+
 # A Lebanese life in bribes
 
 This narrative is based on data collected by <a href="https://www.sakkera.com/">Sakker el Dekkene</a> (SED), a Lebanese NGO which documents and publicises corruption. One of SED's key activities is collecting reports of bribery from the Lebanese public. 
@@ -24,3 +29,5 @@ This <a href="http://radiocontrolled.github.io/Sakker-el-Dekkene2/">demo for the
 
 # Thank you 
 * Brownwen, Stina and Richard @ Small Media
+
+
