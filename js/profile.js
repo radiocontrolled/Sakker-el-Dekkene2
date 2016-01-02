@@ -120,13 +120,21 @@
       data: {
         columns: [],
         type : 'donut'
-    } 
+    },
+    donut: {
+      label: {
+        format: function (value, ratio, id) {
+          return value + "ل.ل";
+        }
+      },
+      width: 100
+    }
   });
 
 
   var chartUpdate = function () {
 
-    var realCost = ["Actual cost of procedure", 0];
+    var realCost = ["Actual cost", 0];
     var userPaid = ["Your bribe", 0]; 
 
     var formatData = function () {
@@ -154,51 +162,6 @@
   };  
 
 
-  // PIE VISUALISATION
-
-
-  // var setSvgSize = function () {
-  //   svg
-  //     .attr({
-  //       width: width,
-  //       height: height
-  //     });
-  // };
-
-  // var drawSvg = function () {
-  //   svg = d3.select("#vis")
-  //     .append("svg");
-  //     setSvgSize();
-  // }
-
-  // var outerRadius = width / 10;
-  
-  // var arc = d3.svg.arc()
-  //   .innerRadius(width/12) 
-  //   .outerRadius(outerRadius);
-
-  // var pie = d3.layout.pie();
-
-
-  // var drawPieChart = function(procedure) {
-  //   var arcs = svg.selectAll("g.arc") 
-  //     .data(pie([100,200])) 
-  //     .enter()
-  //     .append("g")
-  //     .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");    
-
-  //   //Draw arc paths  
-  //   arcs.append("path")
-  //     .attr({
-  //       "d": arc,
-  //       "class": function(d,i){
-  //         return "color-"+i;
-  //       }
-  //     });
-  // };
-
-  // getViewportDimensions();
-  // drawSvg();
 
 
   // var addAnotherBribe = document.getElementById("addAnotherBribe");
