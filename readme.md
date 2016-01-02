@@ -31,3 +31,40 @@ This <a href="http://radiocontrolled.github.io/Sakker-el-Dekkene2/">demo for the
 * Brownwen, Stina and Richard @ Small Media
 
 
+
+
+  // #vis
+
+
+  // var getViewportDimensions = function () { 
+  //   width = document.getElementsByTagName("vis")[0].offsetWidth;
+  //   height = width * 2;
+  // };
+
+  // var setSvgSize = function () {
+  //   svg
+  //     .attr({
+  //       width: width,
+  //       height: height
+  //     });
+  // };
+
+  // var drawSvg = function () {
+  //   svg = d3.select("#vis")
+  //     .append("svg");
+  //     setSvgSize();
+  // }
+
+  // getViewportDimensions();
+  // drawSvg();
+
+  // var addAnotherBribe = document.getElementById("addAnotherBribe");
+  // viewProfile.addEventListener("click", clearForm);
+  // viewProfile.addEventListener("keydown", function(event) {
+  //   var key = event.which || event.keyCode;
+  //   if ((key == 13) || (key ==32)) {
+  //     clearForm();
+  //   }
+  // });
+
+

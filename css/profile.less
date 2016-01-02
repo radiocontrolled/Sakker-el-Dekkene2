@@ -9,6 +9,10 @@
   font-size: 0.75em!important;
 }
 
+#breakdown p {
+  font-size: 0.5em;
+  margin-top: 1em;
+}
 
 select, input, option, label{
   color: @lightGrey;
@@ -37,6 +41,28 @@ div.tabulate a.reportButton:focus {
   background: @white;
 }
 
+/* BRIBE PAID */ 
+.c3-arc-Your-bribe,
+.c3-legend-item-Your-bribe .c3-legend-item-tile{
+  fill: @red!important;
+  stroke: @red!important; 
+}
 
 
+/* ACTUAL COST */ 
+
+.c3-arc-Actual-cost-of-procedure, 
+.c3-legend-item-Actual-cost-of-procedure .c3-legend-item-tile{
+  fill: @white!important;
+  stroke: @white!important;
+}
+
+.c3-target-Actual-cost-of-procedure text {
+  fill: @red!important;
+}
+
+.c3-legend-item-Actual-cost-of-procedure text, 
+.c3-legend-item-Your-bribe text {
+  fill: @lightGrey;
+}
 

@@ -4,6 +4,9 @@
 
   var bribeData; 
   var profileData = [];
+  var counter = 0; 
+
+  var height, width;
 
   // DATA 
   d3.csv("data/dataset.csv", function(data){
@@ -51,22 +54,22 @@
         data.min = parseInt(bribeData[i]["Min Bribes"]);
         data.max = parseInt(bribeData[i]["Max Bribes"]);
         data.median = parseInt(bribeData[i]["Median Bribes"]);
+        data.id = counter; 
+        counter += 1; 
       }
     }
 
     // part 2: update the data object with the actual bribe paid by the end user
     var input = document.getElementById("userBribeAmount").value;
     if(input > 0 ) {
+
       data.bribePaidByUser = parseInt(input);
 
       // update the profileData array 
       profileData.push(data);
     }
-    else {
-      alert("Please enter the bribe you paid for " + selected);
-    }
- 
-
+    else alert("Please enter the bribe you paid for " + selected);
+    
     console.log(profileData);
 
   };
@@ -85,15 +88,118 @@
   var viewProfile = document.getElementById("viewProfile");
   viewProfile.addEventListener("click", function(event){
     calculate();
+    chartUpdate();
     // clearForm();
   });
   viewProfile.addEventListener("keydown", function(event) {
     var key = event.which || event.keyCode;
     if ((key == 13) || (key ==32)) {
       calculate();
+      chartUpdate();
       // clearForm();
     }
   });
+
+  console.log(profileData);
+
+  // C3JS VISUALISATION
+
+  var getViewportDimensions = function () { 
+    width = document.getElementById("visContain").offsetWidth;
+    height = width / 2.5;
+  };
+
+  getViewportDimensions();
+
+  var chart = c3.generate({
+    bindto: d3.select('#vis'),
+    size: {
+        height: height,
+        width: width
+    },
+      data: {
+        columns: [],
+        type : 'donut'
+    } 
+  });
+
+
+  var chartUpdate = function () {
+
+    var realCost = ["Actual cost of procedure", 0];
+    var userPaid = ["Your bribe", 0]; 
+
+    var formatData = function () {
+
+      for(var i = 0; i < profileData.length; i++) {
+      
+        
+        realCost[1] += profileData[i].realCost; 
+        console.log(realCost);
+
+        userPaid[1] += profileData[i].bribePaidByUser;
+        console.log(userPaid);
+
+      }
+
+    }
+
+    formatData();
+
+     chart.load({
+        columns: [
+          realCost, userPaid
+      ]
+    });
+  };  
+
+
+  // PIE VISUALISATION
+
+
+  // var setSvgSize = function () {
+  //   svg
+  //     .attr({
+  //       width: width,
+  //       height: height
+  //     });
+  // };
+
+  // var drawSvg = function () {
+  //   svg = d3.select("#vis")
+  //     .append("svg");
+  //     setSvgSize();
+  // }
+
+  // var outerRadius = width / 10;
+  
+  // var arc = d3.svg.arc()
+  //   .innerRadius(width/12) 
+  //   .outerRadius(outerRadius);
+
+  // var pie = d3.layout.pie();
+
+
+  // var drawPieChart = function(procedure) {
+  //   var arcs = svg.selectAll("g.arc") 
+  //     .data(pie([100,200])) 
+  //     .enter()
+  //     .append("g")
+  //     .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")");    
+
+  //   //Draw arc paths  
+  //   arcs.append("path")
+  //     .attr({
+  //       "d": arc,
+  //       "class": function(d,i){
+  //         return "color-"+i;
+  //       }
+  //     });
+  // };
+
+  // getViewportDimensions();
+  // drawSvg();
+
 
   // var addAnotherBribe = document.getElementById("addAnotherBribe");
   // viewProfile.addEventListener("click", clearForm);
