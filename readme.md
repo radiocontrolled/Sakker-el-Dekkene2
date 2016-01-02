@@ -1,13 +1,11 @@
-# To-do 
-Running Total div needs to be hidden & shown. 
 
 # A Lebanese life in bribes
 
-This interactive narrative is based on data collected by <a href="https://www.sakkera.com/">Sakker el Dekkene</a> (SED), a Lebanese NGO which documents and publicises corruption. One of SED's key activities is collecting reports of bribery from the Lebanese public. 
+This narrative is based on data collected by <a href="https://www.sakkera.com/">Sakker el Dekkene</a> (SED), a Lebanese NGO which documents and publicises corruption. One of SED's key activities is collecting reports of bribery from the Lebanese public. 
 
 The designs for the narrative were conceived and at the D4C visualisation workshop in Beirut, 27 Nov - December 3 2015.
 
-This <a href="http://radiocontrolled.github.io/Sakker-el-Dekkene/">demo for the interactive</a> is based on the team's work. Please note it is in development. 
+This <a href="http://radiocontrolled.github.io/Sakker-el-Dekkene2/">demo for the interactive</a> is my fork based on the team's work. Please note it is in development. 
 
 # Our Team 
 * Jana Chammaa, Researcher, Lebanon
