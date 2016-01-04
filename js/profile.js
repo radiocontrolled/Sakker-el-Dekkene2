@@ -147,7 +147,8 @@
         height: height, 
         width: width
       });
-    }
+    }, 
+    tooltip: false
   });
 
   var chartUpdate = function () {
