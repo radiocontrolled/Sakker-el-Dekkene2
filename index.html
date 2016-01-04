@@ -78,7 +78,7 @@
               You and your spouse decide to have children, so history repeats itself, and another cycle of bribery begins. To be continued... 
             </p> 
           </div>
-          <div id="stage-retirement" class="fullHeight fullHeightReset">
+          <div id="stage-retirement" class="fullHeight fullHeightReset fullHeightRetirement">
             <h2>Retirement</h2>
             <p>
               Just as you bribed to help your children start their lives on the right track, your children will start to take on the costs of helping you age. You'll have to renew your driver's license and passport, and other important personal documents. Your visits to the hospital will increase, which will mean more bribes for admission. 
@@ -88,33 +88,6 @@
       <div class="col-md-4" > 
         <div id="data">
         </div>       
-      </div>
-    </div>
-  </section>
-  <section class="section fullHeight" id="breakdown">
-    <div class="container">
-      <div class="row">
-        <h3>How does your life in bribes compare to the average?</h3>
-        <div class="col-md-4">
-
-          <p>Sakker El Dekkene maintains a database of the official costs of government procedures, along with the bribes citizens report they have to pay on top. How does your life in bribes compare with our fictional Lebanese? To help you answer this question, pick from our growing list of procedures and compare the price you had to pay against our database. </p>
-
-          <h4>1. Choose a government procedure</h4>
-          <div id="procedure"></div>
-
-          <h4>2. Enter the bribe you had to pay </h4>
-          <input type="number" id="userBribeAmount" min="0"></input>
-          <label for="bribeAmount">ل.ل</label>
-
-          <div class="tabulate">  
-            <!-- <a class="btn reportButton" id="addAnotherBribe" tabindex=0>Add another bribe to your profile</a> -->
-            <a class="btn reportButton" id="viewProfile" tabindex=0>View or update your bribe profile</a> 
-          </div>
-        </div>
-        <div class="col-md-8" id="visContain">
-          <div id="vis"></div>
-
-        </div>
       </div>
     </div>
   </section>
@@ -133,6 +106,33 @@
             Sakker El Dekkene maintains a growing database of bribery data from citizens who report corruption through its app and outreach programmes. We chose procedures with verifiable base costs (e.g. having a car registered) that we also had average bribery data for. 
           </p>
 
+
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="section fullHeight" id="breakdown">
+    <div class="container">
+      <div class="row">
+        <h3>How does your life in bribes compare to the average?</h3>
+        <div class="col-md-4">
+
+          <p>How does your life in bribes compare with our fictional Lebanese? To help you answer this question, pick from our growing list of procedures and compare the price you had to pay against our database. </p>
+
+          <h4>1. Choose a government procedure</h4>
+          <div id="procedure"></div>
+
+          <h4>2. Enter the bribe you had to pay </h4>
+          <input type="number" id="userBribeAmount" min="0"></input>
+          <label for="bribeAmount">ل.ل</label>
+
+          <div class="tabulate">  
+            <!-- <a class="btn reportButton" id="addAnotherBribe" tabindex=0>Add another bribe to your profile</a> -->
+            <a class="btn reportButton" id="viewProfile" tabindex=0>Compare</a> 
+          </div>
+        </div>
+        <div class="col-md-8" id="visContain">
+          <div id="vis"></div>
 
         </div>
       </div>

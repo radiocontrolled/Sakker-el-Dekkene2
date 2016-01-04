@@ -1,11 +1,16 @@
 @import url("variables.less");
 
+label {
+  display: inline;
+  color: @white!important;
+}
+
 #breakdown h3 {
   border-bottom: 1px solid @lightGrey!important; 
 }
 
 #breakdown h4 {
-  margin-top: 2em!important;
+  margin-top: 1em!important;
   font-size: 0.75em!important;
 }
 
@@ -24,7 +29,7 @@ select, input, option, label{
 div.tabulate {
   display: block;
   text-align: left;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 div.tabulate a.reportButton {
@@ -41,15 +46,14 @@ div.tabulate a.reportButton:focus {
   background: @white;
 }
 
-/* BRIBE PAID */ 
+/* C3JS */
+
 .c3-arc-Your-bribe,
 .c3-legend-item-Your-bribe .c3-legend-item-tile{
   fill: @red!important;
   stroke: @red!important; 
 }
 
-
-/* ACTUAL COST */ 
 
 .c3-arc-Actual-cost, 
 .c3-legend-item-Actual-cost .c3-legend-item-tile{
@@ -66,3 +70,43 @@ div.tabulate a.reportButton:focus {
   fill: @lightGrey;
 }
 
+@media (max-width: 768px) {
+  #breakdown p {
+    display: none;
+  }
+
+  section#methodology p {
+    font-size: 0.85em!important;
+  }
+
+  section#breakdown h3 {
+    color: #fff;
+    font-size: 1.25em;
+    margin-top: 1em !important;
+    padding: 0 1em 1em;
+    text-align: left!important;
+  }
+
+  #methodology h3 {
+    font-size: 1.5em;
+    margin-top: 1em!important;
+  }
+
+  #breakdown h4 {
+    font-size: 1em !important;
+    margin-top: 1em !important;
+  }
+
+  select, input, option, label {
+    color: black;
+    font-size: 0.75em !important;
+    height: 2em;
+    width: 90%;
+  }
+
+  div.tabulate a.reportButton {
+    font-size: 0.75em!important;
+  }
+
+
+}

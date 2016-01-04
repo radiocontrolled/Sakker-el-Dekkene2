@@ -87,26 +87,37 @@
   // add event listeners
   var viewProfile = document.getElementById("viewProfile");
   viewProfile.addEventListener("click", function(event){
-    calculate();
-    chartUpdate();
-    // clearForm();
+    if(validate() === true) {
+      calculate();
+      chartUpdate();
+    }
+    else alert("Please fill in the form");
   });
   viewProfile.addEventListener("keydown", function(event) {
     var key = event.which || event.keyCode;
     if ((key == 13) || (key ==32)) {
+    if(validate() === true) {
       calculate();
       chartUpdate();
-      // clearForm();
+    }
+    else alert("Please fill in the form");
     }
   });
 
   console.log(profileData);
 
+
+  var validate = function () {
+      var input = document.getElementById("userBribeAmount").value;
+      if(input > 0 ) return true; 
+      else return false; 
+  };
+
   // C3JS VISUALISATION
 
   var getViewportDimensions = function () { 
-    width = document.getElementById("visContain").offsetWidth;
-    height = width / 2.5;
+    width = document.getElementById("visContain").offsetWidth * 0.90;
+    height = width / 1.5;
   };
 
   getViewportDimensions();
@@ -119,7 +130,8 @@
     },
       data: {
         columns: [],
-        type : 'donut'
+        type : 'donut',
+        expand: true
     },
     donut: {
       label: {
@@ -127,10 +139,16 @@
           return value + "ل.ل";
         }
       },
-      width: 100
+      width: 80
+    },
+    onresize: function () {
+      getViewportDimensions();
+      chart.resize({
+        height: height, 
+        width: width
+      });
     }
   });
-
 
   var chartUpdate = function () {
 
@@ -141,7 +159,6 @@
 
       for(var i = 0; i < profileData.length; i++) {
       
-        
         realCost[1] += profileData[i].realCost; 
         console.log(realCost);
 

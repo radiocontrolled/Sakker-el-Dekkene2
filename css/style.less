@@ -100,7 +100,7 @@ h2 {
 }
 
 p {
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
 }
 
 .stuck {
@@ -355,6 +355,13 @@ footer {
     margin-bottom: 0;
   }
   
+  /* table that should appear after retirement */
+
+  .table, #runningTotal {
+    margin-left: 0;
+  }
+
+
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -375,6 +382,11 @@ footer {
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  #methodology p,
+  #breakdown p {
+    font-size: 1em!important;
+  }
+
 
 }
 
