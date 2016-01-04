@@ -70,7 +70,7 @@
     }
     else alert("Please enter the bribe you paid for " + selected);
     
-    console.log(profileData);
+    // console.log(profileData);
 
   };
 
@@ -104,7 +104,7 @@
     }
   });
 
-  console.log(profileData);
+  // console.log(profileData);
 
 
   var validate = function () {

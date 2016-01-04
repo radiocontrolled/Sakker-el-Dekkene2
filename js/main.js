@@ -8,20 +8,15 @@
 
     var tableWrap = document.getElementById("data");
 
-    // force page scroll position to top at page refresh 
-    jQuery(this).scrollTop(0);
+    // force page scroll position to top at page refresh - FF only!
+    // jQuery(document).scrollTop(0);
+
+    jQuery("html, body").animate({ scrollTop: 0 }, 500);
 
     var sticky = new Waypoint.Sticky({
       element: $('#data')[0]
     })
 
-    // DATA 
-
-    d3.csv("data/data.csv", function(data){
-      dataGlobal = data; 
-      var headerNames = d3.keys(data[0]);
-      drawTable(headerNames);    
-    });
 
     // sum of bribes @ each stage
     //birth, school, uni, working, family, retirement
@@ -84,7 +79,6 @@
     var removeRow = function (stage) {
       var last = tbody.lastChild;
       last.parentNode.removeChild(last);
-     
     };
 
     var addRunningTotalDesktop = function (stage) {
@@ -111,140 +105,153 @@
       footer.classList.remove("navbar-fixed-bottom");    
     };  
 
-    // WAYPOINTS, where table add row / subtract row functions called 
-    // initialised with horizontal = false
 
-    var waypointBirth = new Waypoint({
-      element: document.getElementById("stage-birth"),
-      handler: function(direction) {
-        if(direction === "down") {
-          
-          tableWrap.classList.remove("hidden");
-         
+    var waypointsInit = function () {
+        // WAYPOINTS, where table add row / subtract row functions called 
+      // initialised with horizontal = false
 
-          addRow(dataGlobal[0]);
-          addRunningTotalDesktop(intervals[0]);
-          addRunningTotalMobile(intervals[0]);
-          showFooter();
+      var waypointBirth = new Waypoint({
+        element: document.getElementById("stage-birth"),
+        handler: function(direction) {
+          if(direction === "down") {
+            
+            tableWrap.classList.remove("hidden");
+           
+
+            addRow(dataGlobal[0]);
+            addRunningTotalDesktop(intervals[0]);
+            addRunningTotalMobile(intervals[0]);
+            showFooter();
+          }
+
+          else {
+            tableWrap.classList.add("hidden");
+            
+            hideFooter();
+            removeRow();
+
+          }
         }
+      });
 
-        else {
-          tableWrap.classList.add("hidden");
-          
-          hideFooter();
-          removeRow();
-
+      var waypointSchool = new Waypoint({
+        element: document.getElementById('stage-school'),
+        handler: function(direction) {
+          if(direction === "down") {
+            addRow(dataGlobal[1]);
+            addRunningTotalDesktop(intervals[1]);
+            addRunningTotalMobile(intervals[1]);
+            
+          }
+          else {
+            removeRow();
+            addRunningTotalDesktop(intervals[0]);
+            addRunningTotalMobile(intervals[0]);
+          }
         }
-      }
+      });
+
+      var waypointUniversity = new Waypoint({
+        element: document.getElementById('stage-university'),
+        handler: function(direction) {
+          if(direction === "down") {
+            addRow(dataGlobal[2]);
+            addRunningTotalDesktop(intervals[2]);
+            addRunningTotalMobile(intervals[2]);
+          }
+          else {
+            removeRow();
+            addRunningTotalDesktop(intervals[1]);
+            addRunningTotalMobile(intervals[1]);
+          }
+        }
+      });
+
+      var waypointWorkingLife = new Waypoint({
+        element: document.getElementById('stage-workingLife'),
+        handler: function(direction) {
+          if(direction === "down") {
+            addRow(dataGlobal[3]);
+            addRunningTotalDesktop(intervals[3]);
+            addRunningTotalMobile(intervals[3]);
+          }
+          else {
+            removeRow();
+            addRunningTotalDesktop(intervals[2]);
+            addRunningTotalMobile(intervals[2]);
+          }
+        }
+      });
+
+      var waypointFamilyLife = new Waypoint({
+        element: document.getElementById('stage-familyLife'),
+        handler: function(direction) {
+          if(direction === "down") {
+            addRow(dataGlobal[4]);
+            addRunningTotalDesktop(intervals[4]);
+            addRunningTotalMobile(intervals[4]);
+          }
+          else {
+            removeRow();
+            addRunningTotalDesktop(intervals[3]);
+            addRunningTotalMobile(intervals[3]);
+          }
+        }
+      });
+
+      var waypointRetirement = new Waypoint({
+        element: document.getElementById('stage-retirement'),
+        handler: function(direction) {
+          if(direction === "down") {
+            addRow(dataGlobal[5]);
+            addRunningTotalDesktop(intervals[5]);
+            addRunningTotalMobile(intervals[5]);
+          }
+          else {
+            removeRow();
+            addRunningTotalDesktop(intervals[4]);
+            addRunningTotalMobile(intervals[4]);
+            tableWrap.classList.remove("hidden");
+          }
+        }
+      });
+
+      var waypointMethodology = new Waypoint({
+        element: document.getElementById("methodology"),
+        handler: function(direction) {
+          if(direction === "down") {
+            tableWrap.classList.add("hidden");
+          }
+          else {
+            tableWrap.classList.remove("hidden");
+          }
+        }, 
+        offset: 500
+      })
+
+      var waypointRetirement = new Waypoint({
+        element: document.getElementById('breakdown'),
+        handler: function(direction) {
+          if(direction === "down") {
+            hideFooter();
+          }
+          else {
+            showFooter();
+          }
+        }
+      });
+    };
+
+    
+
+     // DATA 
+
+    d3.csv("data/data.csv", function(data){
+      dataGlobal = data; 
+      var headerNames = d3.keys(data[0]);
+      drawTable(headerNames);    
+      waypointsInit(); // need to call this after data is loaded or error in Chrome
     });
-
-    var waypointSchool = new Waypoint({
-      element: document.getElementById('stage-school'),
-      handler: function(direction) {
-        if(direction === "down") {
-          addRow(dataGlobal[1]);
-          addRunningTotalDesktop(intervals[1]);
-          addRunningTotalMobile(intervals[1]);
-          
-        }
-        else {
-          removeRow();
-          addRunningTotalDesktop(intervals[0]);
-          addRunningTotalMobile(intervals[0]);
-        }
-      }
-    });
-
-    var waypointUniversity = new Waypoint({
-      element: document.getElementById('stage-university'),
-      handler: function(direction) {
-        if(direction === "down") {
-          addRow(dataGlobal[2]);
-          addRunningTotalDesktop(intervals[2]);
-          addRunningTotalMobile(intervals[2]);
-        }
-        else {
-          removeRow();
-          addRunningTotalDesktop(intervals[1]);
-          addRunningTotalMobile(intervals[1]);
-        }
-      }
-    });
-
-    var waypointWorkingLife = new Waypoint({
-      element: document.getElementById('stage-workingLife'),
-      handler: function(direction) {
-        if(direction === "down") {
-          addRow(dataGlobal[3]);
-          addRunningTotalDesktop(intervals[3]);
-          addRunningTotalMobile(intervals[3]);
-        }
-        else {
-          removeRow();
-          addRunningTotalDesktop(intervals[2]);
-          addRunningTotalMobile(intervals[2]);
-        }
-      }
-    });
-
-    var waypointFamilyLife = new Waypoint({
-      element: document.getElementById('stage-familyLife'),
-      handler: function(direction) {
-        if(direction === "down") {
-          addRow(dataGlobal[4]);
-          addRunningTotalDesktop(intervals[4]);
-          addRunningTotalMobile(intervals[4]);
-        }
-        else {
-          removeRow();
-          addRunningTotalDesktop(intervals[3]);
-          addRunningTotalMobile(intervals[3]);
-        }
-      }
-    });
-
-    var waypointRetirement = new Waypoint({
-      element: document.getElementById('stage-retirement'),
-      handler: function(direction) {
-        if(direction === "down") {
-          addRow(dataGlobal[5]);
-          addRunningTotalDesktop(intervals[5]);
-          addRunningTotalMobile(intervals[5]);
-        }
-        else {
-          removeRow();
-          addRunningTotalDesktop(intervals[4]);
-          addRunningTotalMobile(intervals[4]);
-          tableWrap.classList.remove("hidden");
-        }
-      }
-    });
-
-    var waypointMethodology = new Waypoint({
-      element: document.getElementById("methodology"),
-      handler: function(direction) {
-        if(direction === "down") {
-          tableWrap.classList.add("hidden");
-        }
-        else {
-          tableWrap.classList.remove("hidden");
-        }
-      }, 
-      offset: 500
-    })
-
-    var waypointRetirement = new Waypoint({
-      element: document.getElementById('breakdown'),
-      handler: function(direction) {
-        if(direction === "down") {
-          hideFooter();
-        }
-        else {
-          showFooter();
-        }
-      }
-    });
-
 
   });
 })();
