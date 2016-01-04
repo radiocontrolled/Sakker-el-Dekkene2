@@ -221,30 +221,49 @@
         handler: function(direction) {
           if(direction === "down") {
             tableWrap.classList.add("hidden");
+            hideFooter();
           }
           else {
             tableWrap.classList.remove("hidden");
+            showFooter();
+          }
+        }, 
+        offset: 500
+      })
+
+      var waypointBreakdown = new Waypoint({
+        element: document.getElementById("breakdown"),
+        handler: function(direction) {
+          if(direction === "down") {
+ 
+          }
+          else {
+            footer.classList.add("visible-xs");
+            footer.classList.add("visible-sm");
+            // footer.style.display = "block";
           }
         }, 
         offset: 500
       })
 
       var waypointRetirement = new Waypoint({
-        element: document.getElementById('breakdown'),
+        element: document.getElementById("callToAction"),
         handler: function(direction) {
           if(direction === "down") {
-            hideFooter();
+            var footer = document.getElementsByTagName("footer")[0];
+            console.log(footer);
+            footer.classList.remove("visible-xs");
+            footer.classList.remove("visible-sm");
+            footer.style.display = "none";
           }
           else {
-            showFooter();
+
           }
         }
       });
     };
-
     
-
-     // DATA 
+    // DATA 
 
     d3.csv("data/data.csv", function(data){
       dataGlobal = data; 

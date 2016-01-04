@@ -15,6 +15,12 @@ Please note it is in development.
 
 # Roadmap
 
+** profile.js
+*** total the list and bribe price 
+*** provide a comparison with other data
+
+* footer on mobile
+
 * Validate the "breakdown" interactive 
 * Using the "bribe profile" application could help build the SED database...
 
