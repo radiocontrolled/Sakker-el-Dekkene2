@@ -4,6 +4,12 @@
 
   var height, width, svg, dataGlobal;
 
+  var selectedClass,
+    selectedClassCircle,
+    selectedClassLine, 
+    dataAvg, 
+    tmp;
+
   var getViewportDimensions = function () { 
     width = document.getElementById("bubbleChart").offsetWidth;
     height = window.innerHeight * 0.95;
@@ -14,7 +20,6 @@
   var drawSvg = function () {
     svg = d3.select("#bubbleChart")
       .append("svg");
-
       setSvgSize();
   };
 
@@ -37,7 +42,7 @@
 
   var bubbleScale = d3.scale.linear()
     .domain([15000,10160000])
-    .range([4,15]);
+    .range([3,15]);
 
   var xAxis = d3.svg.axis()
     .scale(xScale)
@@ -49,11 +54,11 @@
 
   var yAxis = d3.svg.axis()
     .scale(yScale)
-    .orient("right")
+    .orient("right")  
     .ticks(25)
     .tickSize(-width * 0.5)
     .tickFormat(function(d,i){
-      return yTickLabels[i];
+      return yTickLabels[i][0];
     });
 
   var drawCircles = function () {
@@ -62,7 +67,7 @@
       .enter()
       .append("g")
       .attr({
-        "class" : function(d) {
+        "class" : function(d,i) {
           return d[4];
         }
       })
@@ -78,10 +83,14 @@
           return bubbleScale(d[3]);
          
         },
-        "class" : function(d) {
-          return d[2];
+        "class" : function(d,i) {
+           return " circle" + " " + d[5];
+        },
+        "data-avg" : function(d,i) {
+          return d[3];
         }
       });
+
 
     svg
       .append("g")
@@ -90,7 +99,7 @@
       })
       .call(xAxis);
 
-    svg
+    var yAxis2 = svg
       .append("g")
       .attr({
         "class" : "yAxis"
@@ -102,9 +111,59 @@
       })
       .call(yAxis);
 
+    yAxis2.selectAll("line")
+      .attr({
+        "class" : function (d,i) {
+          return "c-" + d;
+        }
+      });
+
+    yAxis2.selectAll("text")  
+      .attr({
+        "class" : function(d,i) {
+          return "c-" + d;
+        }
+      })
+      .on("mouseover", function() {
+        selectedClass = this.className.baseVal;
+
+        // circle
+        selectedClassCircle = "circle." + selectedClass;
+        d3.selectAll(selectedClassCircle).classed("circleHover", true);
+
+        // text
+        dataAvg = d3.select(selectedClassCircle).attr("data-avg");
+        tmp = d3.select(this).text();
+        d3.select(this)
+          .classed("textHover", true)
+          .text(function(){
+            return dataAvg;
+          });
+
+        //line 
+        selectedClassLine = "line." + selectedClass;
+        d3.selectAll(selectedClassLine).classed("lineHover", true);
+        
+      })
+      .on("mouseout", function() {
+
+        // circle 
+        d3.selectAll(selectedClassCircle).classed("circleHover", false);
+
+
+        // text
+         d3.select(this)
+          .classed("textHover", false)
+          .text(function(){
+            return tmp;
+          });
+
+        // line 
+        d3.selectAll(selectedClassLine).classed("lineHover", false);
+
+      });
 
   };
-
 
 
   d3.json("data/bubbleChartData.json", function(error, json){
@@ -136,7 +195,7 @@
       .range([(height * 0.9),0]);
 
     bubbleScale
-      .range([4,15]);
+      .range([3,15]);
 
     // update the circle positions and radius  
     svg.selectAll("circle")
@@ -152,7 +211,7 @@
          
         },
         "class" : function(d) {
-          return d[2];
+          return d[2] + " circle";
         }
       });
 
@@ -177,32 +236,34 @@
 
   }
 
-  var xTickLabels = ["Birth", "School", "University", "Working Life", "Family Life", "Retirement"];
-  var yTickLabels = ["Cadastre - 205",
-    "Car Registration - 87",
-    "Certification of Personal Documents (Marriage, Divorce...) - 298",
-    "Civil Register Authentication - 64","Cleaning of Judicial Record - 419",
-    "Diploma Certification - 36",
-    "Driving Licence - 83",
-    "Driving Licence Replacement - 174",
-    "Electricity Request - 4",
-    "Fines: Parking Ticket - 85",
-    "Hospital Admission - 71",
-    "Housing Loan - 124",
-    "Housing Permit - 147",
-    "Identity card - 95",
-    "Judicial Record - 96",
-    "License for Commercial Enterprise - 163",
-    "Mecanique - 84",
-    "Passport - 97",
-    "Permit to issue an approval for foreigners' competency licence holders - 472",
-    "Redemption request a financial guarantee (certificate of deposit) - 312",
-    "Passport Renewal  - 275",
-    "Results of Official Examinations - 203",
-    "Social Security Family Procedures - 116",
-    "Social Security Paperwok - 115",
-    "Subscription to Lebanese University - 39",
-    "Water Request - 44"
+  var xTickLabels = ["Birth", "School", "University", "Work", "Family", "Retirement"];
+  var yTickLabels = [
+    ["Cadastre", "c-0"],
+    ["Car Registration", "c-1"],
+    ["Certification of Personal Documents (Marriage, Divorce...)", "c-2"],
+    ["Civil Register Authentication", "c-3"],
+    ["Cleaning of Judicial Record", "c-4"],
+    ["Diploma Certification", "c-5"],
+    ["Driving Licence", "c-6"],
+    ["Driving Licence Replacement", "c-7"],
+    ["Electricity Request", "c-8"],
+    ["Fines: Parking Ticket", "c-9"],
+    ["Hospital Admission", "c-10"],
+    ["Housing Loan", "c-11"],
+    ["Housing Permit", "c-12"],
+    ["Identity card", "c-13"],
+    ["Judicial Record", "c-14"],
+    ["License for Commercial Enterprise", "c-15"],
+    ["Mecanique", "c-16"],
+    ["Passport", "c-17"],
+    ["Permit to issue an approval for foreigners' competency licence holders", "c-18"],
+    ["Redemption request a financial guarantee (certificate of deposit)", "c-19"],
+    ["Passport Renewal", "c-20"],
+    ["Results of Official Examinations", "c-21"],
+    ["Social Security Procedures", "c-22"],
+    ["Social Security Paperwok", "c-23"],
+    ["Subscription to Lebanese University", "c-24"],
+    ["Water Request", "c-25"]
   ];
 
 

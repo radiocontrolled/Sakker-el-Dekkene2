@@ -1,5 +1,9 @@
+-- http://neuralengr.com/asifr/journals/
+-- http://alignedleft.com/tutorials/d3/axes
 
-
+On Y Axis hover: 
+- highlight the whole row 
+- show the axis label
 
 # A Lebanese life in bribes
 
