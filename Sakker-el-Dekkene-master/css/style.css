@@ -1,0 +1,13 @@
+label {
+  display: block;
+}
+
+/* official price*/
+.color-1 {
+  fill: #555555;
+}
+
+/* added bribe */
+.color-2 {
+  fill: #D92F2B;  
+}

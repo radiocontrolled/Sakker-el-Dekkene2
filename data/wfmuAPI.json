@@ -1,0 +1,57 @@
+{
+  "name" : "Total bribes",
+  "value" : 35491510, 
+  "class": "titie",
+  "children" : [
+    { "name" : "Birth", 
+      "value" : 1406155, 
+      "children" : [
+        {"name" : "Certification of Personal Documents (Marriage, Divorce...) - 298", "value" : 19071}
+        ,
+        {"name" : "Identity card - 95", "value" : 1015000}
+        
+      ]
+    },
+    { "name" : "School", 
+      "value" : 1406155, 
+      "children" : [
+        {"name" : "Certification of Personal Documents (Marriage, Divorce...) - 298", "value" : 19071},
+        {"name" : "Identity card - 95", "value" : 1015000},
+        {"name" : "Passport - 97", "value" : 50000},
+        {"name" : "Civil Register Authentication - 64", "value" : 48750},
+        {"name" : "Hospital Admission - 71", "value" : 273333 }
+      ]
+    },
+    { "name" : "University", 
+      "value" : 1406155, 
+      "children" : [
+        {"name" : "Certification of Personal Documents (Marriage, Divorce...) - 298", "value" : 19071},
+        {"name" : "Identity card - 95", "value" : 1015000},
+        {"name" : "Passport - 97", "value" : 50000},
+        {"name" : "Civil Register Authentication - 64", "value" : 48750},
+        {"name" : "Hospital Admission - 71", "value" : 273333 }
+      ]
+    },
+    { "name" : "Working Life", 
+      "value" : 1406155, 
+      "children" : [
+        {"name" : "Certification of Personal Documents (Marriage, Divorce...) - 298", "value" : 19071},
+        {"name" : "Identity card - 95", "value" : 1015000},
+        {"name" : "Passport - 97", "value" : 50000},
+        {"name" : "Civil Register Authentication - 64", "value" : 48750},
+        {"name" : "Hospital Admission - 71", "value" : 273333 }
+      ]
+    },
+    { "name" : "Family Life", 
+      "value" : 1406155, 
+      "children" : [
+        {"name" : "Certification of Personal Documents (Marriage, Divorce...) - 298", "value" : 19071},
+        {"name" : "Identity card - 95", "value" : 1015000},
+        {"name" : "Passport - 97", "value" : 50000},
+        {"name" : "Civil Register Authentication - 64", "value" : 48750},
+        {"name" : "Hospital Admission - 71", "value" : 273333 }
+      ]
+    }
+  
+  ]
+}

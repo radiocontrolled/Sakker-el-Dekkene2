@@ -1,7 +1,7 @@
 @import "variables.less";
 
 svg {
-  // background: #eee;
+  transform: translateY(1em);
 }
 
 .Birth,
@@ -16,7 +16,7 @@ svg {
 .xAxis path,
 .xAxis line {
     fill: none;
-    // stroke: @darkDarkGrey;
+    
     shape-rendering: crispEdges;
 }
 
@@ -78,4 +78,9 @@ line.lineHover {
 
 .hide{
   display: none;
+}
+
+
+.xAxis .tick:first-child text {
+  text-anchor: right!important;
 }

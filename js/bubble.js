@@ -2,7 +2,7 @@
 
     "use strict";
 
-    var height, width, svg, dataGlobal, yAxis2, yAxisLine, yAxisText;
+    var height, width, svg, dataGlobal, yAxis2, yAxisLine, yAxisText, xAxisText;
 
     var selectedClass,
       selectedClassCircle,
@@ -110,6 +110,13 @@
         .call(yAxis);
 
 
+      xAxisText = d3.selectAll(".xAxis text")
+       .attr({
+          "class" : function (d,i) {
+            return "b-" + d;
+          }
+        });
+
 
       yAxisLine = d3.selectAll(".yAxis line")
         .attr({
@@ -190,6 +197,7 @@
       }
    
     });
+
 
 
     d3.select(window).on('resize', resize);
@@ -277,6 +285,7 @@
       ["Subscription to Lebanese University", "c-24"],
       ["Water Request", "c-25"]
     ];
+
 
 
 

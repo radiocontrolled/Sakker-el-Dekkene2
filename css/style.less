@@ -175,7 +175,8 @@ table.visible {
   padding-top: 2em;
 }
 
-section#hero {
+section#hero,
+#hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url("../assets/hero.jpg");
   background-size:cover;
   position:relative;
@@ -197,7 +198,7 @@ section#hero p.small {
 }
 
 div.lead {
-  font-size: 1.5em;
+  font-size: 1em;
   padding: 1em;
   margin: 0 auto;
   text-align: center;
@@ -229,7 +230,8 @@ section#methodology p {
   font-size: 0.60em;
 }
 
-section.report {
+section.report, 
+#callToAction  {
   background: @red;
   color: @white;
   padding: 4em 0 6em 0;
@@ -285,18 +287,18 @@ footer {
 /* visualisation */
 
 
-.birth, 
-.school, 
-.university,
-.workingLife, 
-.familyLife, 
-.retirement {
-  opacity: 0;
-}
+// .birth, 
+// .school, 
+// .university,
+// .workingLife, 
+// .familyLife, 
+// .retirement {
+//   opacity: 0;
+// }
 
-.invisible {
-  border: none;
-}
+// .invisible {
+//   border: none;
+// }
 
 
 
@@ -316,7 +318,7 @@ footer {
 
   div.lead {
     width: 100%;
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: bold;
     padding: 0;
   }
@@ -381,7 +383,7 @@ footer {
   }
 
   p {
-    font-size: 2em!important;
+    // font-size: 2em!important;
   }
 
   section#methodology p {
