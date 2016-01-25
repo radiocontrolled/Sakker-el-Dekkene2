@@ -11,7 +11,7 @@
 
     // if landscape
     else {
-      width = document.getElementById("pie").offsetWidth / 2;
+      width = document.getElementById("pie").offsetWidth / 2.5;
     }
 
     height = width;
@@ -77,7 +77,6 @@
         return d.data.Stage;
         }       
       });
-    
 
     //Draw arc paths  
     arcs.append("path")
@@ -100,22 +99,22 @@
       onSlideChangeEnd: function() {
         
         switch(swiper.activeIndex) {
-          case 1 : console.log("birth");
+          case 1 : 
           break; 
 
-          case 2 : console.log("school");
+          case 2 : d3.selectAll(".school").transition().duration(500).style("fill", "#7FB9E6");
           break; 
 
-          case 3 : console.log("uni");
+          case 3 : d3.selectAll(".university").transition().duration(500).style("fill", "#7FB9E6");
           break; 
 
-          case 4 : console.log("work");
+          case 4 : d3.selectAll(".work").transition().duration(500).style("fill", "#7FB9E6");
           break;
 
-          case 5 : console.log("family");
+          case 5 : d3.selectAll(".family").transition().duration(500).style("fill", "#7FB9E6");
           break; 
 
-          case 6 : console.log("retirement");
+          case 6 : d3.selectAll(".retirement").transition().duration(500).style("fill", "#7FB9E6");
           break; 
 
           default: 
@@ -123,6 +122,35 @@
 
 
         }
+      },
+      onSlidePrevEnd: function () {
+
+           
+        switch(swiper.activeIndex) {
+        
+          case 1 : d3.selectAll(".school").transition().duration(500).style("fill", "#fff"); 
+          break; 
+
+          case 2 : d3.selectAll(".university").transition().duration(500).style("fill", "#fff"); 
+          break; 
+
+          case 3 : d3.selectAll(".work").transition().duration(500).style("fill", "#fff"); 
+          break; 
+         
+          case 4 : d3.selectAll(".family").transition().duration(500).style("fill", "#fff"); 
+          break; 
+
+          case 5 : d3.selectAll(".retirement").transition().duration(500).style("fill", "#fff"); 
+          break; 
+
+          default: 
+          break; 
+
+
+        }
+
+
+        
       }
     });
   }();
